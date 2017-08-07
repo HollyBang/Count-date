@@ -11,6 +11,9 @@ class Clock extends Component {
       seconds: 0
     }
   }
+  componentWillMount() {
+    this.getTimeUntil(this.props.deadline)
+  }
 
   getTimeUntil(deadline) {
     const time = Date.parse(deadline) - Date.parse(new Date());
@@ -27,10 +30,10 @@ class Clock extends Component {
   render() {
     return (
       <div>
-      <div className='Clock-days'>{ this.state.days } Дней</div>
-      <div className='Clock-hours'>{ this.state.hours } Часов</div>
-      <div className='Clock-minutes'>{ this.state.minutes } Минут</div>
-      <div className='Clock-seconds'>{ this.state.seconds } Секунд</div>
+      <div className='Clock-days'>{ this.state.days } Days</div>
+      <div className='Clock-hours'>{ this.state.hours } Hours</div>
+      <div className='Clock-minutes'>{ this.state.minutes } Minutes</div>
+      <div className='Clock-seconds'>{ this.state.seconds } Seconds</div>
     </div>
     )
   }
